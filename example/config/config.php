@@ -50,9 +50,9 @@ return [
                 ],
             ],
             'resource'    => [
-                'host'      => env('APP_REDIS_HOST', '127.0.0.1'),
-                'port'      => env('APP_REDIS_PORT', 6379),
-                'password'  => env('APP_REDIS_PASSWORD'),
+                'host'      => env('REDIS_SERVER_HOST', '127.0.0.1'),
+                'port'      => env('REDIS_SERVER_PORT', 6379),
+                'password'  => env('REDIS_SERVER_PASSWORD'),
                 'serialize' => false,
                 'options'   => [
                 ],
