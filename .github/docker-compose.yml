@@ -1,0 +1,28 @@
+version: "3.4"
+volumes:
+  shared-volume:
+services:
+  swoole:
+    container_name: "swoole"
+    environment:
+      REDIS_SERVER_HOST: ${REDIS_SERVER_HOST}
+    build:
+      context: .
+      dockerfile: swoole.dockerfile
+      args:
+        SWOOLE_DOCKER_VERSION: ${SWOOLE_DOCKER_VERSION}
+    volumes:
+      - "${GITHUB_WORKSPACE}:/imi:rw"
+    working_dir: /imi
+    command: tail -f /dev/null
+
+  redis:
+    image: redis:6-alpine
+    container_name: redis
+    depends_on:
+      - shared-tmp
+    command: redis-server /etc/redis.conf
+    volumes:
+      - shared-volume:/tmp/docker
+    ports:
+      - 6379:6379

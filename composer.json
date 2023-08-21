@@ -1,0 +1,48 @@
+{
+    "name": "imiphp/imi-email-blacklist",
+    "type": "library",
+    "license": "MulanPSL-2.0",
+    "description": "imi 框架邮箱域名黑名单组件，支持自动更新临时邮箱域名列表。",
+    "require": {
+        "yurunsoft/yurun-http": "^4.4"
+    },
+    "require-dev": {
+        "php-cs-fixer/shim": "~3.22.0",
+        "phpstan/phpstan": "~1.8.0",
+        "phpunit/phpunit": "~9.6",
+        "imiphp/imi": "2.1.x-dev",
+        "imiphp/imi-swoole": "2.1.x-dev",
+        "swoole/ide-helper": "^4.8|^5.0",
+        "yurunsoft/ide-helper": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Imi\\Email\\BlackList\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "app\\": "example/",
+            "Imi\\Email\\BlackList\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "@php vendor/bin/swoole-phpunit -c ./phpunit.xml",
+        "check-format": "./vendor/bin/php-cs-fixer fix --dry-run --diff -vvv",
+        "phpstan": "./vendor/bin/phpstan"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "ide-helper": {
+            "list": [
+                "redis"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "yurunsoft/ide-helper": true
+        }
+    }
+}
