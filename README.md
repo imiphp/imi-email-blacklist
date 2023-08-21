@@ -34,6 +34,11 @@ imi 框架邮箱域名黑名单组件，支持自动更新临时邮箱域名列�
             \Imi\Email\BlackList\IvoloDisposableEmailDomainsCrawler::class, // 数据来源：https://github.com/ivolo/disposable-email-domains/raw/master/index.json
         ],
     ],
+    // handler 配置
+    \Imi\Email\BlackList\Handler\RedisHandler::class => [
+        'key' => 'imi:email:blacklist', // 存储数据的键名
+        'poolName' => null, // 连接池
+    ],
 ]
 ```
 
