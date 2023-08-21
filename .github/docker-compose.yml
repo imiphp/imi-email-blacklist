@@ -19,8 +19,6 @@ services:
   redis:
     image: redis:6-alpine
     container_name: redis
-    depends_on:
-      - shared-tmp
     command: redis-server /etc/redis.conf
     volumes:
       - shared-volume:/tmp/docker
