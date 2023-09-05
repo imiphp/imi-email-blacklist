@@ -46,7 +46,7 @@ class RedisHandler implements IHandler
     {
         if ('' === $search && null === $page && null === $count)
         {
-            return Redis::use(fn (RedisRedisHandler $redis) => $redis->smembers($this->key));
+            return Redis::use(fn (RedisRedisHandler $redis) => $redis->sMembers($this->key));
         }
 
         $pattern = '' === $search ? '*' : ('*' . $search . '*');
