@@ -29,6 +29,14 @@ abstract class BaseHandlerTest extends TestCase
         $this->assertContains('a.com', $list);
         $this->assertContains('b.cn', $list);
 
+        $this->assertCount(1, $list = $handler->list('a'));
+        $this->assertContains('a.com', $list);
+
+        $this->assertCount(1, $list = $handler->list('a', 1, 1));
+        $this->assertContains('a.com', $list);
+
+        $this->assertCount(0, $list = $handler->list('a', 2, 1));
+
         $handler->remove(['a.com']);
         $this->assertEquals(1, $handler->count());
         $this->assertFalse($handler->has('a.com'));

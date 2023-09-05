@@ -64,6 +64,12 @@ $handler->clear(); // 清空
 $handler->has('example.com'); // 是否存在
 $handler->count(); // 统计数量
 $handler->list(); // 获取列表
+$handler->list('.com'); // 关键词搜索
+// 分页
+// 注意：RedisHandler 返回数据数量可能不一定等于 $count
+$page = 1;
+$count = 10;
+$handler->list('', $page, $count);
 ```
 
 ### 验证器
@@ -91,6 +97,13 @@ class TestService
     {
     }
 }
+```
+
+### 手动验证
+
+```php
+// 不在黑名单中返回 true，否则返回 false
+\Imi\Email\BlackList\Util\EmailBlackListUtil::validateEmail('a@example.com');
 ```
 
 ## 免费技术支持

@@ -23,7 +23,7 @@ interface IHandler
     /**
      * @return string[]
      */
-    public function list(): array;
+    public function list(string $search = '', ?int $page = null, ?int $count = null): array;
 
     public function count(): int;
 }
