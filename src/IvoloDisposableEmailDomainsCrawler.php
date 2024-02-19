@@ -9,7 +9,7 @@ use Yurun\Util\HttpRequest;
 
 class IvoloDisposableEmailDomainsCrawler implements IEmailBlackListCrawler
 {
-    protected string $url = 'https://ghproxy.com/https://github.com/ivolo/disposable-email-domains/raw/master/index.json';
+    protected string $url = 'https://github.com/ivolo/disposable-email-domains/raw/master/index.json';
 
     protected int $maxBatchSize = 1000;
 
